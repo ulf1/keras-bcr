@@ -4,7 +4,11 @@
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/satzbeleg/keras-bcr.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/satzbeleg/keras-bcr/context:python)
 
 # keras-bcr : Batch Correlation Regularizer for TF2/Keras
+The batch correlation regularization (BCR) technique adds a penalty loss
+if the inputs and outputs before the skip-connection of a specific feature element are correlated.
+The correlation coefficients are computed for each feature element seperatly across the current batch.
 
+~~For further information please read Ch.??? in [link to paper]().~~
 
 ## Usage
 
@@ -40,6 +44,14 @@ X_train = tf.random.normal([BATCH_SZ, INPUT_DIM])
 y_train = tf.random.normal([BATCH_SZ])
 
 history = model.fit(X_train, y_train, verbose=1, epochs=2)
+```
+
+
+## Citation
+Please considering citing 
+
+```
+Forthcoming
 ```
 
 
