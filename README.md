@@ -47,14 +47,6 @@ history = model.fit(X_train, y_train, verbose=1, epochs=2)
 ```
 
 
-## Citation
-Please considering citing 
-
-```
-Forthcoming
-```
-
-
 ## Appendix
 
 ### Installation
@@ -108,3 +100,15 @@ Please [open an issue](https://github.com/satzbeleg/keras-bcr/issues/new) for su
 
 ### Contributing
 Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/satzbeleg/keras-bcr/compare/).
+
+
+### Acknowledgements
+This work was funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) - [433249742](https://gepris.dfg.de/gepris/projekt/433249742). Project duration: 2020-2023.
+
+
+### Citation
+Please considering citing 
+
+```
+Forthcoming
+```
