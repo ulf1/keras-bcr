@@ -9,10 +9,13 @@
 ## Usage
 
 ```py
+from keras_bcr import BatchCorrRegulizer
+import tensorflow as tf
+
 # The BCR layer is added before the addition of the skip-connection
 def build_resnet_block(inputs, units=64, activation="gelu",
                        dropout=0.4, bcr_rate=0.1):
-    h = tf.keras.Dense(units=units)(inputs)
+    h = tf.keras.layers.Dense(units=units)(inputs)
     h = h = tf.keras.layers.Activation(activation=activation)(h)
     h = tf.keras.layers.Dropout(rate=dropout)(h)
     h = BatchCorrRegulizer(bcr_rate=bcr_rate)([h, inputs])  # << HERE
@@ -24,11 +27,11 @@ def build_model(input_dim):
     inputs = tf.keras.Input(shape=(input_dim,))
     h = build_resnet_block(inputs, units=input_dim)
     h = build_resnet_block(h, units=input_dim)
-    outpus = build_resnet_block(h, units=input_dim)
+    outputs = build_resnet_block(h, units=input_dim)
     model = tf.keras.Model(inputs=inputs, outputs=outputs)
     return model
 
-INPUT_DIM=64
+INPUT_DIM = 64
 model = build_model(input_dim=INPUT_DIM)
 model.compile(optimizer=tf.keras.optimizers.Adam(), loss="mean_squared_error")
 
