@@ -20,7 +20,7 @@ def get_version(path):
 
 setuptools.setup(
     name='keras-bcr',
-    version=get_version("keras-bcr/__init__.py"),
+    version=get_version("keras_bcr/__init__.py"),
     description='Batch Correlation Regularizer for TF2/Keras',
     long_description=read('README.rst'),
     url='http://github.com/satzbeleg/keras-bcr',
