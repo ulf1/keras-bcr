@@ -13,7 +13,7 @@ The correlation coefficients are computed for each feature element seperatly acr
 ## Usage
 
 ```py
-from keras_bcr import BatchCorrRegulizer
+from keras_bcr import BatchCorrRegularizer
 import tensorflow as tf
 
 # The BCR layer is added before the addition of the skip-connection
@@ -22,7 +22,7 @@ def build_resnet_block(inputs, units=64, activation="gelu",
     h = tf.keras.layers.Dense(units=units)(inputs)
     h = h = tf.keras.layers.Activation(activation=activation)(h)
     h = tf.keras.layers.Dropout(rate=dropout)(h)
-    h = BatchCorrRegulizer(bcr_rate=bcr_rate)([h, inputs])  # << HERE
+    h = BatchCorrRegularizer(bcr_rate=bcr_rate)([h, inputs])  # << HERE
     outputs = tf.keras.layers.Add()([h, inputs])
     return outputs
 

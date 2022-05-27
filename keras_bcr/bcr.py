@@ -35,7 +35,7 @@ def batch_corr(a, b, tol: float = 1e-8):
     return tf.math.reduce_mean(tf.math.abs(rhos))
 
 
-class BatchCorrRegulizer(tf.keras.layers.Layer):
+class BatchCorrRegularizer(tf.keras.layers.Layer):
     """ Batch Correlation Regularizer
 
     Parameters:
@@ -45,25 +45,28 @@ class BatchCorrRegulizer(tf.keras.layers.Layer):
 
     Example:
     --------
-    The BatchCorrRegulizer must be integrated within a ResNet block. It cannot
-      be attached between ResNet layers. Here is an example how to design a
-      ResNet block using the Keras Functional API
+    The BatchCorrRegularizer must be integrated within a ResNet block. It
+      cannot be attached between ResNet layers. Here is an example how to
+      design a ResNet block using the Keras Functional API
 
     def ...(self, inputs, ...):
         h = tf.keras.Dense(...)(h)
         h = h = tf.keras.layers.Activation(...)(h)
         h = tf.keras.layers.Dropout(...)(h)
-        h = BatchCorrRegulizer(bcr_rate)([h, inputs])
+        h = BatchCorrRegularizer(bcr_rate)([h, inputs])
         outputs = tf.keras.layers.Add(...)([h, inputs])
         return outputs
     """
     def __init__(self, bcr_rate: float = 1e-6):
-        super(BatchCorrRegulizer, self).__init__()
+        super(BatchCorrRegularizer, self).__init__()
         self.bcr_rate = bcr_rate
 
     def call(self, inputs):
         lout, linp = inputs
-        loss = self.bcr_rate * batch_corr(lout, linp)
+        loss = self.bcr_rate * batch_corr(
+            tf.keras.layers.Flatten()(lout),
+            tf.keras.layers.Flatten()(linp)
+        )
         self.add_loss(loss)
-        self.add_metric(loss, name="batch_corr_regulizer")
+        self.add_metric(loss, name="batch_corr_regularizer")
         return lout
