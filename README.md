@@ -13,7 +13,7 @@ The correlation coefficients are computed for each feature element seperatly acr
 ## Usage
 
 ```py
-from keras_bcr import BatchCorrRegulizer
+from keras_bcr import BatchCorrRegularizer
 import tensorflow as tf
 
 # The BCR layer is added before the addition of the skip-connection
@@ -22,7 +22,7 @@ def build_resnet_block(inputs, units=64, activation="gelu",
     h = tf.keras.layers.Dense(units=units)(inputs)
     h = h = tf.keras.layers.Activation(activation=activation)(h)
     h = tf.keras.layers.Dropout(rate=dropout)(h)
-    h = BatchCorrRegulizer(bcr_rate=bcr_rate)([h, inputs])  # << HERE
+    h = BatchCorrRegularizer(bcr_rate=bcr_rate)([h, inputs])  # << HERE
     outputs = tf.keras.layers.Add()([h, inputs])
     return outputs
 
@@ -44,14 +44,6 @@ X_train = tf.random.normal([BATCH_SZ, INPUT_DIM])
 y_train = tf.random.normal([BATCH_SZ])
 
 history = model.fit(X_train, y_train, verbose=1, epochs=2)
-```
-
-
-## Citation
-Please considering citing 
-
-```
-Forthcoming
 ```
 
 
@@ -108,3 +100,15 @@ Please [open an issue](https://github.com/satzbeleg/keras-bcr/issues/new) for su
 
 ### Contributing
 Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/satzbeleg/keras-bcr/compare/).
+
+
+### Acknowledgements
+This work was funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) - [433249742](https://gepris.dfg.de/gepris/projekt/433249742). Project duration: 2020-2023.
+
+
+### Citation
+Please considering citing 
+
+```
+Forthcoming
+```
