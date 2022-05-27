@@ -50,8 +50,8 @@ class BatchCorrRegulizer(tf.keras.layers.Layer):
       ResNet block using the Keras Functional API
 
     def ...(self, inputs, ...):
-        h = tf.keras.Dense(...)(h)
-        h = h = tf.keras.layers.Activation(...)(h)
+        h = tf.keras.layers.Dense(...)(h)
+        h = tf.keras.layers.Activation(...)(h)
         h = tf.keras.layers.Dropout(...)(h)
         h = BatchCorrRegulizer(bcr_rate)([h, inputs])
         outputs = tf.keras.layers.Add(...)([h, inputs])
