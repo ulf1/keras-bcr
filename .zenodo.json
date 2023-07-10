@@ -1,0 +1,19 @@
+{
+  "creators": [{
+    "name": "Ulf Hamster",
+    "orcid": "0000-0002-0440-4868"
+  }],
+  "title": "keras-bcr: Batch Correlation Regularizer for TF2/Keras",
+  "description": "The batch correlation regularization (BCR) technique adds a penalty loss if the inputs and outputs before the skip-connection of a specific feature element are correlated. The correlation coefficients are computed for each feature element seperatly across the current batch.",
+  "license": "Apache-2.0",
+  "upload_type": "software",
+  "keywords": [
+    "keras",
+    "tensorflow",
+    "neural networks",
+    "regularization",
+    "loss function",
+    "layer stacking",
+    "representation learning"
+  ]
+}
