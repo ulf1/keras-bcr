@@ -1,7 +1,6 @@
 [![PyPI version](https://badge.fury.io/py/keras-bcr.svg)](https://badge.fury.io/py/keras-bcr)
 [![PyPi downloads](https://img.shields.io/pypi/dm/keras-bcr)](https://img.shields.io/pypi/dm/keras-bcr)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/satzbeleg/keras-bcr.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/satzbeleg/keras-bcr/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/satzbeleg/keras-bcr.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/satzbeleg/keras-bcr/context:python)
+
 
 # keras-bcr : Batch Correlation Regularizer for TF2/Keras
 The batch correlation regularization (BCR) technique adds a penalty loss
@@ -50,11 +49,11 @@ history = model.fit(X_train, y_train, verbose=1, epochs=2)
 ## Appendix
 
 ### Installation
-The `keras-bcr` [git repo](http://github.com/satzbeleg/keras-bcr) is available as [PyPi package](https://pypi.org/project/keras-bcr)
+The `keras-bcr` [git repo](http://github.com/ulf1/keras-bcr) is available as [PyPi package](https://pypi.org/project/keras-bcr)
 
 ```sh
 pip install keras-bcr
-pip install git+ssh://git@github.com/satzbeleg/keras-bcr.git
+pip install git+ssh://git@github.com/ulf1/keras-bcr.git
 ```
 
 ### Install a virtual environment
@@ -79,7 +78,6 @@ pip install -r requirements-demo.txt --no-cache-dir
 Publish
 
 ```sh
-pandoc README.md --from markdown --to rst -s -o README.rst
 python setup.py sdist 
 twine upload -r pypi dist/*
 ```
@@ -95,20 +93,17 @@ rm -r .venv
 
 
 ### Support
-Please [open an issue](https://github.com/satzbeleg/keras-bcr/issues/new) for support.
+Please [open an issue](https://github.com/ulf1/keras-bcr/issues/new) for support.
 
 
 ### Contributing
-Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/satzbeleg/keras-bcr/compare/).
+Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/ulf1/keras-bcr/compare/).
 
 
 ### Acknowledgements
-This work was funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) - [433249742](https://gepris.dfg.de/gepris/projekt/433249742). Project duration: 2020-2023.
+The "Evidence" project was funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) - [433249742](https://gepris.dfg.de/gepris/projekt/433249742) (GU 798/27-1; GE 1119/11-1).
 
+### Maintenance
+- till 31.Aug.2023 (v0.2.0) the code repository was maintained within the DFG project [433249742](https://gepris.dfg.de/gepris/projekt/433249742)
+- since 01.Sep.2023 (v0.3.0) the code repository is maintained by Ulf Hamster.
 
-### Citation
-Please considering citing 
-
-```
-Forthcoming
-```
