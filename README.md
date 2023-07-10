@@ -1,6 +1,6 @@
 [![PyPI version](https://badge.fury.io/py/keras-bcr.svg)](https://badge.fury.io/py/keras-bcr)
 [![PyPi downloads](https://img.shields.io/pypi/dm/keras-bcr)](https://img.shields.io/pypi/dm/keras-bcr)
-
+[![DOI](https://zenodo.org/badge/490336438.svg)](https://zenodo.org/badge/latestdoi/490336438)
 
 # keras-bcr : Batch Correlation Regularizer for TF2/Keras
 The batch correlation regularization (BCR) technique adds a penalty loss
