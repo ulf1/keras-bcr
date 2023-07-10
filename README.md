@@ -7,8 +7,6 @@ The batch correlation regularization (BCR) technique adds a penalty loss
 if the inputs and outputs before the skip-connection of a specific feature element are correlated.
 The correlation coefficients are computed for each feature element seperatly across the current batch.
 
-~~For further information please read Ch.??? in [link to paper]().~~
-
 ## Usage
 
 ```py
