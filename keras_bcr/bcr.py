@@ -68,5 +68,5 @@ class BatchCorrRegularizer(tf.keras.layers.Layer):
             tf.keras.layers.Flatten()(linp)
         )
         self.add_loss(loss)
-        self.add_metric(loss, name="batch_corr_regularizer")
+        # self.add_metric(loss, name="batch_corr_regularizer")
         return lout
