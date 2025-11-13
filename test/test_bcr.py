@@ -35,7 +35,7 @@ def test1():
     y_train = tf.random.normal([BATCH_SZ, INPUT_DIM])
 
     history = model.fit(X_train, y_train, verbose=1, epochs=2)
-    # assert "batch_corr_regularizer" in history.history.keys()
+    # assert "batch_corr_regularizer" in history.history.keys()  # deprecated since tf 2.16
 
 
 def test2():
@@ -51,4 +51,4 @@ def test2():
     y_train = tf.random.normal([BATCH_SZ, SEQLEN, EMBED_DIM])
 
     history = model.fit(X_train, y_train, verbose=1, epochs=2)
-    # assert "batch_corr_regularizer" in history.history.keys()
+    # assert "batch_corr_regularizer" in history.history.keys()  # deprecated since tf 2.16
