@@ -15,12 +15,13 @@ def batch_corr(a, b, tol: float = 1e-8):
 
     Example:
     --------
-    import numpy as np
-    BATCH_SIZE = 100
-    NUM_NEURONS = 1024
-    a = np.random.random((BATCH_SIZE, NUM_NEURONS))
-    b = np.random.random((BATCH_SIZE, NUM_NEURONS))
-    bcr = batch_corr(a, b)
+        import tensorflow as tf
+        from keras_bcr import batch_corr
+        BATCH_SIZE = 100
+        NUM_NEURONS = 1024
+        a = tf.random.normal((BATCH_SIZE, NUM_NEURONS))
+        b = tf.random.normal((BATCH_SIZE, NUM_NEURONS))
+        bcr = batch_corr(a, b)
     """
     # compute pearson' rhos
     mu_a = tf.reduce_mean(a, axis=0)
@@ -68,5 +69,5 @@ class BatchCorrRegularizer(tf.keras.layers.Layer):
             tf.keras.layers.Flatten()(linp)
         )
         self.add_loss(loss)
-        self.add_metric(loss, name="batch_corr_regularizer")
+        # self.add_metric(loss, name="batch_corr_regularizer")  # deprecated since tf 2.16
         return lout

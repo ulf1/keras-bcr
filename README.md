@@ -7,7 +7,7 @@ The batch correlation regularization (BCR) technique adds a penalty loss
 if the inputs and outputs before the skip-connection of a specific feature element are correlated.
 The correlation coefficients are computed for each feature element seperatly across the current batch.
 
-## Usage
+## Usage `BatchCorrRegularizer`
 
 ```py
 from keras_bcr import BatchCorrRegularizer
@@ -38,9 +38,27 @@ model.compile(optimizer=tf.keras.optimizers.Adam(), loss="mean_squared_error")
 
 BATCH_SZ = 128
 X_train = tf.random.normal([BATCH_SZ, INPUT_DIM])
-y_train = tf.random.normal([BATCH_SZ])
+y_train = tf.random.normal([BATCH_SZ, INPUT_DIM])
 
 history = model.fit(X_train, y_train, verbose=1, epochs=2)
+```
+
+## Explanation
+The class `BatchCorrRegularizer` takes the inputs and outputs of neural network layer or block (see `[h, inputs]` in the example above), 
+and computes the pearson correlation for each input-output element across a training batch.
+
+```py
+from keras_bcr import batch_corr
+import tensorflow as tf
+
+BATCH_SIZE = 100
+NUM_NEURONS = 1024
+a = tf.random.normal((BATCH_SIZE, NUM_NEURONS))
+b = tf.random.normal((BATCH_SIZE, NUM_NEURONS))
+
+bcr = batch_corr(a, b)
+bcr
+# <tf.Tensor: shape=(), dtype=float32, numpy=0.07825338840484619>
 ```
 
 
